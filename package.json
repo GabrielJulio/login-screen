@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
+    "@types/faker": "^4.1.11",
     "@types/jest": "^29.2.2",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "eslint": "^8.26.0",
@@ -11,6 +12,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
+    "faker": "^4.1.0",
     "husky": "^8.0.1",
     "jest": "^29.2.2",
     "lint-staged": "^13.0.3",
