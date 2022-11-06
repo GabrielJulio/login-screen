@@ -12,11 +12,40 @@ module.exports = {
       extensions: [
         '.ts',
         '.tsx',
-        '.js'
+        '.js',
+        '.scss'
       ],
       alias: {
         '@': path.join(__dirname, 'src')
       }
+    },
+    module: {
+      rules: [
+        {
+          test: /.ts(x?)$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.scss$/,
+          user: [
+            {
+              loader: 'style-loader'
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true
+              }
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ],
+          loader: 'ts-loader',
+          exclude: /node_modules/
+        }
+      ]
     },
     devServer: {
       contentBase: './public',
