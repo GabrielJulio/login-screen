@@ -1,4 +1,4 @@
 .vscode/
 node_modules/
 coverage/
-public/assets/js/*.js
+public/assets/js/
