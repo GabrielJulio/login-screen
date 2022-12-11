@@ -1,5 +1,5 @@
 const path = require('path')
-const { CleanWebPackPlugin } = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -7,57 +7,61 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public/assets/js'),
     publicPath: '/public/assets/js',
-    filename: 'bundle.js',
-    resolve: {
-      extensions: [
-        '.ts',
-        '.tsx',
-        '.js',
-        '.scss'
-      ],
-      alias: {
-        '@': path.join(__dirname, 'src')
-      }
+    filename: 'bundle.js'
+  },
+  devServer: {
+    devMiddleware: {
+      writeToDisk: true
     },
-    module: {
-      rules: [
-        {
-          test: /.ts(x?)$/,
-          loader: 'ts-loader',
-          exclude: /node_modules/
-        },
-        {
-          test: /\.scss$/,
-          user: [
-            {
-              loader: 'style-loader'
-            },
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true
-              }
-            },
-            {
-              loader: 'sass-loader'
-            }
-          ],
-          loader: 'ts-loader',
-          exclude: /node_modules/
-        }
-      ]
+    static: {
+      directory: './public'
     },
-    devServer: {
-      contentBase: './public',
-      writeToDisk: true,
-      historyApiFallback: true
-    },
-    externals: {
-      react: 'React',
-      'react-dom': 'ReactDOM'
+    historyApiFallback: true,
+    port: 8080
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM'
+  },
+  resolve: {
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.js',
+      '.scss'
+    ],
+    alias: {
+      '@': path.join(__dirname, 'src')
     }
   },
+  module: {
+    rules: [
+      {
+        test: /.ts(x?)$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ],
+        exclude: /node_modules/
+      }
+    ]
+  },
   plugins: [
-    new CleanWebPackPlugin()
+    new CleanWebpackPlugin()
   ]
 }
