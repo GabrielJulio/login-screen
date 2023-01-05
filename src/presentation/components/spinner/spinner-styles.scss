@@ -13,10 +13,10 @@
     width: 40px;
     height: 40px;
     margin: 6px;
-    border: 6px solid $primaryLight;
+    border: 6px solid $complementary;
     border-radius: 50%;
     animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: $primaryLight transparent transparent transparent;
+    border-color: $complementary transparent transparent transparent;
 
     &:nth-child(1) {
       animation-delay: -0.45s;
