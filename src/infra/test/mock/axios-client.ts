@@ -1,5 +1,5 @@
-import axios from 'axios'
-import faker from 'faker'
+import axios from "axios"
+import faker from "faker"
 
 export const mockAxiosClient = (): jest.Mocked<typeof axios> => {
   const mockedAxios = axios as jest.Mocked<typeof axios>

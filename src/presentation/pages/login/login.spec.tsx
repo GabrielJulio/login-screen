@@ -5,7 +5,7 @@ import { Login } from "@/presentation/pages"
 describe("Login Component", () => {
   test("", () => {
     const { getByTestId } = render(<Login />)
-    const errorWrap = getByTestId('error-wrap')
+    const errorWrap = getByTestId("error-wrap")
     expect(errorWrap.childElementCount).toBe(0)
   })
 })
