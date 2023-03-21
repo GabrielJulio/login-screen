@@ -64,7 +64,7 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
           Entrar
         </button>
         <span className={Styles.link}>
-          Criar conta
+          Criar uma conta
         </span>
         <FormStatus />
       </form>
